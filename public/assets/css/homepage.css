@@ -1,0 +1,468 @@
+/* RESET & TEXTURE */
+body.portal-screen {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* No scrollbars on the window */
+
+    /* Dark background for the "empty space" outside your design */
+    background-color: #2d211e;
+
+    /* Center the poster */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+/* --- TITLE SECTION (RIGHT) --- */
+.portal-title {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+
+    padding: 0 4vmin;
+    gap: 3vmin;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center title vertically */
+    align-items: center;
+
+    /* Slight adjustment to padding to fit the new element */
+    padding-left: 7vmin;
+
+    /* Separate Title from Grid */
+    background-color: transparent;
+    border-right: none;
+    /* Make title area slightly lighter */
+    height: 100%;
+    position: relative;
+
+    /* Allow the seal to bleed outside if needed */
+    overflow: visible;
+}
+
+
+.main-title {
+    font-size: 20vmin;
+    /* Massive Title */
+    margin: 0;
+    line-height: 1;
+    color: #3e2723;
+    letter-spacing: 0.2em;
+    /* Space out the Kanji */
+
+}
+
+.sub-title {
+    margin: 0;
+    border: none;
+    /* Removed the old border */
+    font-size: 4vmin;
+    color: #5d4037;
+    border-right: 0.15vmin solid #333;
+    /* Adds a solid border to the bottom */
+    padding-right: 0.3vmin;
+    /* Space between text and the line */
+    margin-right: 0.3vmin;
+    /* Space between the line and the next text */
+}
+
+.stamp-container {
+    margin-right: 7.5vmin;
+    /* Gap from text */
+    display: flex;
+    flex-direction: column;
+    /* Stack stamps vertically */
+    gap: 3.5vmin;
+}
+
+.seal {
+    width: 9vmin;
+    height: 9vmin;
+    border: 0.4vmin solid #b71c1c;
+    color: #b71c1c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vmin;
+    border-radius: 2vmin;
+    writing-mode: horizontal-tb;
+    /* Kanji inside sits normal */
+    transform: rotate(-8deg);
+    /* Organic tilt */
+    opacity: 0.8;
+    mix-blend-mode: multiply;
+    /* Blends into the paper texture */
+}
+
+/* --- NAVIGATION SECTION (LEFT) --- */
+.portal-nav {
+    flex: 0 0 auto;
+    /* Take up all empty space */
+    height: 100%;
+    /* Full height */
+    background-color: transparent;
+}
+
+.portal-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    /* Keep your order */
+    height: 100%;
+    padding-top: 17vmin;
+    /* Increased from default */
+    box-sizing: border-box;
+    padding-left: 8vmin;
+}
+
+.portal-nav li {
+    /* Layout Basics */
+    height: 100%;
+    flex: 1;
+    max-width: 30vmin;
+    border: none;
+
+    /* Essential for positioning the new custom line */
+    position: relative;
+    /* VERTICAL MODE SETTING */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    /* FLEXBOX LOGIC (In Vertical Mode) */
+    display: flex;
+    /* 'row' = Top-to-Bottom flow. 
+       We need this so the Number (一) sits ABOVE the Link (縁起). */
+    flex-direction: row;
+    /* 'flex-start' = Pin content to the TOP of the page. 
+       (This fixes the "floating in the center" bug) */
+    justify-content: flex-start;
+    /* 'center' = Center horizontally inside the column width. */
+    align-items: center;
+    /* Spacing */
+    padding-top: 7vmin;
+    box-sizing: border-box;
+    /* Interaction */
+    transition: background-color 0.3s;
+}
+
+.portal-nav li::after {
+    content: "";
+    position: absolute;
+
+    /* Position it on the right edge */
+    right: 0;
+
+    /* CONTROL THE LENGTH HERE */
+    top: 15%;
+    /* Start lower (avoid top flowers) */
+    height: 60%;
+    /* Only take up 60% of the screen height */
+
+    /* Make it look like a line */
+    width: 0.1vmin;
+    /* Thin line */
+    background-color: rgba(62, 39, 35, 0.4);
+    /* Your original brown color */
+}
+
+
+/* Ensure the last item still has NO line */
+
+/* Move the LINK inside, not the LI, to prevent hover-jumping */
+.portal-nav li a {
+    text-decoration: none;
+    color: #3e2723;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 15px;
+    /* Space between the Number and the Text */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Elegant easing */
+}
+
+.portal-nav li:hover a {
+    transform: translateY(25px);
+    /* Deeper, smoother slide */
+}
+
+.portal-nav li:hover {
+    background-color: rgba(62, 39, 35, 0.08);
+    /* Slightly darker for better contrast */
+}
+
+.portal-nav li:last-child {
+    border-left: none;
+}
+
+.portal-nav a {
+    text-decoration: none;
+    color: #3e2723;
+
+    /* This splits Kanji and English into two parallel columns */
+    display: flex;
+    flex-direction: column;
+    /* Stacks items Right-to-Left in vertical-rl */
+    gap: 2vmin;
+    /* Space between Kanji column and English column */
+
+    /* Pin them to the top */
+    align-items: flex-start;
+    margin-top: 2vmin;
+    font-size: 7vmin;
+    font-weight: bold;
+    line-height: 1;
+    /* Tighten vertical spacing */
+}
+
+.portal-nav li:hover a {
+    color: #b71c1c;
+    /* Highlight Red */
+}
+
+.num {
+    font-size: 3vmin;
+    color: #b71c1c;
+    font-family: serif;
+    border: 0.25vmin solid #b71c1c;
+    border-radius: 50%;
+    width: 5vmin;
+    height: 5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.2vmin;
+    align-self: flex-start;
+}
+
+.en {
+    /* English Subtext */
+    font-size: 2.4vmin;
+    /* Smaller to save vertical space */
+    color: #8d6e63;
+    font-family: "Courier Pr";
+
+    /* The Upright Stack */
+    text-orientation: upright;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.2em;
+    /* Breathing room between stacked letters */
+
+    /* Optional: Add a subtle border to define the column */
+    border-left: 1px solid rgba(141, 110, 99, 0.2);
+    padding-left: 5px;
+}
+
+.deco-col {
+    /* Dimensions */
+    height: 60%;
+    /* Shorter than the main title */
+    width: 6vmin;
+    /* Width of the column */
+
+    /* Layout for the text inside */
+    display: flex;
+    align-items: center;
+    /* Center text horizontally in the strip */
+    justify-content: center;
+    /* Center text vertically */
+
+
+    /* Optional: Add a subtle border to make it look like a paper strip */
+    border: 1px solid rgba(141, 110, 99, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Very faint paper backing */
+}
+
+.poetic-text {
+    writing-mode: vertical-rl;
+    font-size: 3vmin;
+    color: #5d4037;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    /* Spread the characters out */
+
+    /* Ensure text sits ON TOP of the watermark */
+    z-index: 2;
+
+    /* Text Shadow to make it readable over the image */
+    text-shadow: 0 0 10px rgba(244, 228, 188, 0.9);
+}
+
+@font-face {
+    font-family: 'Hina Mincho';
+    /* You can name this whatever you want */
+    src: url('../fonts/Hina-Mincho-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Courier Pr';
+    /* You can name this whatever you want */
+    src: url('../fonts/CourierPrime-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.portal-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* This creates a static noise pattern */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+
+    /* Blends it into your beige background */
+    opacity: 0.08;
+    pointer-events: none;
+    /* Allows clicking through it */
+    mix-blend-mode: multiply;
+    z-index: 2;
+    /* Sits on top of everything like a texture */
+}
+
+.poster-container {
+
+    /* LOCK THE SHAPE (Keep this) */
+    aspect-ratio: 16/9;
+    width: auto;
+    height: 89.5%;
+    max-height: 94vh;
+    max-width: 96vw;
+
+    /* NEW BACKGROUND SETUP */
+    /* Replace 'image_name.jpg' with the actual file name you uploaded */
+
+    /* LAYOUT */
+    display: flex;
+    flex-direction: row-reverse;
+    /* Title (Right) -> Haiku (Center) -> Nav (Left) */
+    align-items: stretch;
+    justify-content: space-between;
+
+    /* CRITICAL CHANGE: Remove padding so Nav touches the edge */
+    padding: 0;
+
+    background-image: url('../images/background.png');
+    background-size: 100% 100%;
+    
+    /* Stretch to fill the box exactly */
+    background-repeat: no-repeat;
+
+
+    /* Background Styles (Keep these) */
+    font-family: "Hina Mincho", serif;
+    border: none;
+    padding-top: 5vmin;
+    /* Clear the top border */
+    padding-bottom: 5vmin;
+    /* Clear the bottom border */
+    padding-left: 6vmin;
+    /* Clear the left flowers */
+    padding-right: 6vmin;
+    /* Clear the right flowers */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+    z-index: 1;
+}
+
+.center-art {
+    flex-grow: 1;
+    display: flex;
+
+    /* CHANGE: Push the poem to the RIGHT (next to the title) */
+    justify-content: flex-end;
+    align-items: center;
+
+    /* Add a little breathing room so it doesn't hit the Title line */
+    padding-right: 4vmin;
+
+    /* Keep watermark if you want it */
+    opacity: 0.9;
+    background-color: transparent;
+
+
+}
+
+.haiku-box {
+    writing-mode: vertical-rl;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0vmin;
+    /* Distance between lines */
+    font-size: 4.5vmin;
+    font-family: "Hina Mincho", serif;
+    color: #3e2723;
+
+}
+
+/* THE STAGGER PATTERN */
+/* Line 1 (Rightmost): High */
+.haiku-line:nth-child(1) {
+    margin-top: 0;
+}
+
+/* Line 2 (Middle): Down */
+.haiku-line:nth-child(2) {
+    margin-top: 12vmin;
+}
+
+/* Line 3 (Leftmost): Further Down */
+.haiku-line:nth-child(3) {
+    margin-top: 24vmin;
+}
+
+.haiku-line {
+    margin-bottom: 0;
+    /* Reset */
+    margin-left: 0;
+    letter-spacing: 0.4em;
+    text-shadow: 0 0 2vmin rgba(244, 228, 188, 1);
+}
+
+/* THE CUSTOM PNG STAMP */
+.custom-seal {
+    /* Dimensions */
+    width: 12vmin;
+    height: auto;
+
+    /* ABSOLUTE FREEDOM */
+    position: absolute;
+    z-index: 10;
+    /* Ensures it sits ON TOP of the subtitle text */
+
+    /* Y-AXIS (Height): */
+    /* 0 = Very top edge. Adjust this to go higher/lower than 聖 */
+    top: 3vmin;
+
+    /* X-AXIS (Horizontal): */
+    /* 0 = Right edge. Increase this to move Left towards the subtitle */
+    /* 14-18vmin is usually the sweet spot to overlap the subtitle */
+    right: 20vmin;
+
+    /* STYLE */
+    transform: rotate(-10deg);
+    transition: transform 0.4s;
+    mix-blend-mode: multiply;
+    /* Looks like real ink */
+    opacity: 0.9;
+}
+
+/* Optional: Wiggle it on hover */
+.custom-seal:hover {
+    transform: rotate(0deg) scale(1.1);
+}
