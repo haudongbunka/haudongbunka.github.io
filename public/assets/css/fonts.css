@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Hina Mincho';
+    /* You can name this whatever you want */
+    src: url('../fonts/Hina-Mincho-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Courier Pr';
+    /* You can name this whatever you want */
+    src: url('../fonts/CourierPrime-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

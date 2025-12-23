@@ -1,0 +1,209 @@
+/* 1. THE FRAME (Based on your homepage dimensions) */
+.about-frame {
+    /* We override the homepage image because we need a seamless scroll here */
+    background-image: none;
+
+    /* GENERATED PAPER TEXTURE (No file needed!) */
+    background-color: #F8F1E5;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+
+    /* Add an Inner Shadow to make it look recessed inside the dark screen */
+    box-shadow: inset 0 0 10vmin rgba(0, 0, 0, 0.2);
+
+    position: relative;
+    overflow: hidden;
+    /* Hide anything outside the box */
+}
+
+/* 2. THE SCROLLING ENGINE */
+.scroll-mask {
+    width: 100%;
+    height: 100%;
+
+    /* This enables Horizontal Scrolling */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* JAPANESE MODE: Right-to-Left Scroll */
+    direction: rtl;
+
+    /* Hide Scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE */
+    cursor: ew-resize;
+    /* Shows 'Move Left/Right' cursor */
+}
+
+.scroll-mask::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* 3. THE CONTENT STRIP */
+.scroll-strip {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* Vertically center content */
+
+    /* Padding = Start/End empty space */
+    padding-right: 15vmin;
+    padding-left: 15vmin;
+    gap: 15vmin;
+    /* Space between sections */
+}
+
+/* 4. TYPOGRAPHY & LAYOUT */
+.content-block {
+    height: 70%;
+    /* Keep text away from edges */
+    display: flex;
+    flex-direction: row-reverse;
+    /* Items flow Right-to-Left */
+    gap: 6vmin;
+
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: #3e2723;
+    font-family: "Hina Mincho", serif;
+}
+
+.page-title {
+    font-size: 10vmin;
+    margin: 0;
+    line-height: 1;
+    border-left: 0.4vmin solid #3e2723;
+    padding-left: 3vmin;
+    letter-spacing: 0.2em;
+}
+
+.section-title {
+    font-size: 6vmin;
+    margin: 0;
+    border-left: 0.2vmin solid #8d6e63;
+    padding-left: 2vmin;
+}
+
+.text-body p {
+    font-size: 3.2vmin;
+    margin: 0 0 0 2vmin;
+    line-height: 2.2;
+}
+
+/* 5. TEAM PLATES */
+.team-grid {
+    display: flex;
+    flex-direction: row-reverse;
+    /* RTL flow */
+    align-items: center;
+    /* Align tops so we can push some down */
+    justify-content: flex-start;
+    /* Start from the right side */
+    flex-wrap: wrap;
+    /* Allow multiple rows */
+    gap: 4vmin;
+    /* Space between cards */
+    padding-top: 2vmin;
+    /* Breathing room at top */
+}
+
+/* THE CARD DESIGN */
+.member-card {
+    border: 0.15vmin solid #5d4037;
+    background-color: rgba(255, 248, 240, 0.7);
+    /* Light paper color */
+    padding: 3vmin 2vmin;
+    height: 40vmin;
+    width: 10vmin;
+    /* Consistent height */
+
+    display: flex;
+    flex-direction: row-reverse;
+    /* Role on Left, Name on Right */
+    gap: 2vmin;
+    align-items: center;
+    /* Align tops so we can push some down */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    transition: transform 0.4s ease;
+    box-shadow: 2px 4px 10px rgba(62, 39, 35, 0.1);
+}
+
+
+/* TYPOGRAPHY */
+.role {
+    writing-mode: vertical-rl;
+    font-size: 1.6vmin;
+    color: #8d6e63;
+    border-left: 1px solid #8d6e63;
+    padding-left: 1vmin;
+    letter-spacing: 0.1em;
+    height: 100%;
+}
+
+.name {
+    writing-mode: vertical-rl;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: #3e2723;
+    letter-spacing: 0.2em;
+    font-family: "Hina Mincho", serif;
+}
+.push-down {
+    position: relative;
+    top: 40px;
+    /* Push this card down */
+}
+
+/* INTERACTION */
+.member-card:hover {
+    background-color: #fff;
+    transform: translateY(-1vmin);
+    /* Slight lift on hover */
+    box-shadow: 2px 8px 20px rgba(62, 39, 35, 0.2);
+    border-color: #b71c1c;
+    /* Highlight Red border */
+}
+
+/* 6. BUTTON & SEAL */
+.fixed-nav {
+    position: absolute;
+    top: 5vmin;
+    left: 5vmin;
+    z-index: 10;
+}
+
+.back-btn {
+    text-decoration: none;
+    font-family: "Hina Mincho", serif;
+    color: #3e2723;
+    font-size: 2.5vmin;
+    border: 1px solid #3e2723;
+    padding: 1vmin 2vmin;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #3e2723;
+    color: #fff;
+}
+
+.final-seal {
+    font-size: 6vmin;
+    color: #b71c1c;
+    /* Red Ink */
+    border: 0.3vmin solid #b71c1c;
+    width: 10vmin;
+    height: 10vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+    /* Soft square */
+    mix-blend-mode: multiply;
+    transform: rotate(-10deg);
+}

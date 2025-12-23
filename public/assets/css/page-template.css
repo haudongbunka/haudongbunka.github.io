@@ -1,0 +1,62 @@
+.poster-container {
+
+    /* LOCK THE SHAPE (Keep this) */
+    aspect-ratio: 16/9;
+    width: auto;
+    height: 89.5%;
+    max-height: 94vh;
+    max-width: 96vw;
+
+    /* NEW BACKGROUND SETUP */
+    /* Replace 'image_name.jpg' with the actual file name you uploaded */
+
+    /* LAYOUT */
+    display: flex;
+    flex-direction: row-reverse;
+    /* Title (Right) -> Haiku (Center) -> Nav (Left) */
+    align-items: stretch;
+    justify-content: space-between;
+
+    /* CRITICAL CHANGE: Remove padding so Nav touches the edge */
+    padding: 0;
+
+    background-size: 100% 100%;
+    
+    /* Stretch to fill the box exactly */
+    background-repeat: no-repeat;
+
+
+    /* Background Styles (Keep these) */
+    font-family: "Hina Mincho", serif;
+    border: none;
+    padding-top: 5vmin;
+    /* Clear the top border */
+    padding-bottom: 5vmin;
+    /* Clear the bottom border */
+    padding-left: 6vmin;
+    /* Clear the left flowers */
+    padding-right: 6vmin;
+    /* Clear the right flowers */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+    z-index: 1;
+}
+body.portal-screen {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* No scrollbars on the window */
+
+    /* Dark background for the "empty space" outside your design */
+    background-color: #2d211e;
+
+    /* Center the poster */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}

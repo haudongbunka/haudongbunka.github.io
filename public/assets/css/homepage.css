@@ -297,21 +297,6 @@ body.portal-screen {
     text-shadow: 0 0 10px rgba(244, 228, 188, 0.9);
 }
 
-@font-face {
-    font-family: 'Hina Mincho';
-    /* You can name this whatever you want */
-    src: url('../fonts/Hina-Mincho-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Courier Pr';
-    /* You can name this whatever you want */
-    src: url('../fonts/CourierPrime-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .portal-screen::before {
     content: "";
@@ -466,3 +451,4 @@ body.portal-screen {
 .custom-seal:hover {
     transform: rotate(0deg) scale(1.1);
 }
+
