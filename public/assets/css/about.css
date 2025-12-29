@@ -81,3 +81,10 @@ body.portal-screen {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+.content-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 2vmin;
+    overflow-x: scroll;
+    height: auto;
+}
