@@ -1,4 +1,4 @@
-.poster-container {
+main.poster-container {
 
     /* LOCK THE SHAPE (Keep this) */
     aspect-ratio: 16/9;
@@ -7,9 +7,9 @@
     max-height: 94vh;
     max-width: 96vw;
 
-    /* NEW BACKGROUND SETUP */
-    /* Replace 'image_name.jpg' with the actual file name you uploaded */
-
+    /* NEW BACKGROUND SETUP - THE INNER WINDOW */
+    background-color: #fffcf5; /* Light parchment color for the "inner window" */
+    
     /* LAYOUT */
     display: flex;
     flex-direction: row-reverse;
@@ -28,16 +28,19 @@
 
     /* Background Styles (Keep these) */
     font-family: "Hina Mincho", serif;
-    border: none;
+    
+    /* Elegant thin borders for the "framed window" look */
+    border-left: none;
+    border-right: none;
+    
+    /* Reset paddings that might interfere with the edge-to-edge look */
     padding-top: 5vmin;
-    /* Clear the top border */
     padding-bottom: 5vmin;
-    /* Clear the bottom border */
     padding-left: 6vmin;
-    /* Clear the left flowers */
     padding-right: 6vmin;
-    /* Clear the right flowers */
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    
+    /* Strong shadow to emphasize the floating window effect */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 
     position: relative;
     z-index: 1;
@@ -56,7 +59,4 @@ body.portal-screen {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
 }

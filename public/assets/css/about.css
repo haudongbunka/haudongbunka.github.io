@@ -1,17 +1,3 @@
-body.portal-screen {
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #2d211e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-
-}
-
 .portal-title {
     writing-mode: vertical-rl;
     text-orientation: upright;
@@ -67,27 +53,87 @@ body.portal-screen {
     transform: rotate(0deg) scale(1.1);
 }
 
-.back-link {
-    position: absolute;
-    bottom: 3vmin;
-    left: 3vmin;
-    font-size: 3vmin;
-    color: #5d4037;
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 1vmin 2vmin;
-    border-radius: 1vmin;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s, box-shadow 0.3s;
+.content-grid {
+    /* Use Flexbox for better control over the horizontal strip */
+    display: flex;
+    flex-direction: column; /* In vertical-rl, column flows Right-to-Left (Block Axis) */
+    gap: 0; /* Remove gap, use borders/padding instead for seamless look */
+    
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+    height: 100%;
+    /* Writing mode determines the flow direction */
+    writing-mode: vertical-rl;
+    
+    /* Ensure it takes remaining space next to title */
+    flex: 1;
+    
+    /* Hide scrollbar for cleaner look (optional, but good for "app" feel) */
+    scrollbar-width: thin;
+    scrollbar-color: #5d4037 #2d211e;
 }
 
-.content-grid {
-    display: grid;
-    grid-template-columns: 30vmin 30vmin 30vmin 30vmin 30vmin;
-    gap: 2vmin;
-    overflow-x: scroll;
-    height: auto;
+/* Sections */
+.intro, .origin, .mission, .team, .thanks {
+    /* Layout */
+    flex: 0 0 auto; /* Don't shrink, auto basis */
+    width: auto; /* Width in vertical mode is height */
+    height: 100%; /* Fill the vertical height of the container */
+    
+    /* Sizing in the scrolling direction (Block Axis = Horizontal Width) */
+    /* In vertical mode, 'block-size' or logical height controls the width of the strip */
+    block-size: 25vmin; 
+    
+    /* Visuals */
+    background-color: transparent; /* Remove solid blocky background */
+    padding: 3vmin;
+    
+    /* Typography */
+    font-size: 2.5vmin;
+    line-height: 1.8;
+    color: #3e2723;
+    
+    /* Borders */
+    border-left: 1px solid rgba(93, 64, 55, 0.2); /* Visual Left Border */
+    
+    /* Position for absolute children if any */
+    position: relative;
+    
+    box-sizing: border-box;
 }
-.intro{
-    background-color: #fff3e0;
+
+.intro h2, .origin h2, .mission h2, .team h2, .thanks h2 {
+    font-size: 4vmin;
+    margin: 0 0 2vmin 0;
+    color: #5d4037;
+    font-weight: bold;
+}
+
+/* Hover effect for sections */
+.intro:hover, .origin:hover, .mission:hover, .team:hover, .thanks:hover {
+    background-color: rgba(255, 243, 224, 0.3); /* Subtle highlight */
+}
+
+/* Back Link positioning */
+.back-link {
+    position: absolute;
+    bottom: 2vmin;
+    left: 2vmin;
+    z-index: 100;
+    
+    font-size: 2.5vmin;
+    color: #fff; /* White text on dark background or use bubble */
+    text-decoration: none;
+    
+    background-color: #5d4037;
+    padding: 1vmin 2vmin;
+    border-radius: 2vmin;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    
+    writing-mode: horizontal-tb; /* Reset writing mode for the button */
+}
+
+.back-link:hover {
+    background-color: #795548;
 }
