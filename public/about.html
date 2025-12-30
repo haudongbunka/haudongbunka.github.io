@@ -27,7 +27,7 @@
     <section class="content-grid">
         <div class="intro">
             <h2>はじめに</h2>
-            <p class = "intro-text"> </p>
+            <p data-source="test.txt"></p>
         </div>
         <div class="origin">
             <h2>起源</h2>
@@ -48,30 +48,7 @@
     </section>
     </main>
 
-    <script>
-    // 1. define the file path and the target HTML element
-    const filePath = 'assets/text/test.txt';
-    const targetElement = document.querySelector('.intro-text p');
-
-    // 2. Use 'fetch' to grab the file
-    fetch(filePath)
-        .then(response => {
-            // Check if the file was found
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            // Convert the response to plain text
-            return response.text();
-        })
-        .then(textData => {
-            // 3. Inject the text into the paragraph
-            targetElement.innerText = textData;
-        })
-        .catch(error => {
-            console.error('There was a problem fetching the text file:', error);
-            targetElement.innerText = "Error loading text.";
-        });
-</script>
+    <script type="module" src="assets/js/main.js"></script>
 
 </body>
 
