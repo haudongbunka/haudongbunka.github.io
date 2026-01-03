@@ -1,7 +1,7 @@
 main.poster-container {
 
     /* LOCK THE SHAPE (Keep this) */
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/9 mandatory;
     width: auto;
     height: 89.5%;
     max-height: 94vh;

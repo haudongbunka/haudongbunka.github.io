@@ -58,7 +58,8 @@
     display: flex;
     flex-direction: column; /* In vertical-rl, column flows Right-to-Left (Block Axis) */
     gap: 0; /* Remove gap, use borders/padding instead for seamless look */
-    
+    scroll-snap-type: x mandatory; /* Snap horizontally */
+    scrollbar-width: none; /* Hide scrollbar for cleaner look */
     overflow-x: auto;
     overflow-y: hidden;
     
@@ -68,39 +69,34 @@
     
     /* Ensure it takes remaining space next to title */
     flex: 1;
-    
-    /* Hide scrollbar for cleaner look (optional, but good for "app" feel) */
-    scrollbar-width: thin;
-    scrollbar-color: #5d4037 #2d211e;
+}
+.content-grid::-webkit-scrollbar {
+  display: none;
 }
 
 /* Sections */
 .intro, .origin, .mission, .team, .thanks {
     /* Layout */
     flex: 0 0 auto; /* Don't shrink, auto basis */
+    flex-direction: row;
+    justify-content: flex-start;
     width: auto; /* Width in vertical mode is height */
-    height: 100%; /* Fill the vertical height of the container */
-    
+    height: 100%; /* Fill the vertical height of the container */   
     /* Sizing in the scrolling direction (Block Axis = Horizontal Width) */
     /* In vertical mode, 'block-size' or logical height controls the width of the strip */
-    block-size: 25vmin; 
-    
+    min-block-size: 25vmin; 
     /* Visuals */
     background-color: transparent; /* Remove solid blocky background */
     padding: 3vmin;
-    
     /* Typography */
     font-size: 2.5vmin;
     line-height: 1.8;
     color: #3e2723;
-    
     /* Borders */
-    border-left: 1px solid rgba(93, 64, 55, 0.2); /* Visual Left Border */
-    
-    /* Position for absolute children if any */
+    border-left: 1px solid rgba(93, 64, 55, 0.2);
     position: relative;
-    
     box-sizing: border-box;
+    scroll-snap-align: start; /* Snap to start of each section */
 }
 
 .intro h2, .origin h2, .mission h2, .team h2, .thanks h2 {
@@ -137,3 +133,4 @@
 .back-link:hover {
     background-color: #795548;
 }
+
